@@ -1,8 +1,8 @@
 import profile
+player = profile.get_skills()
 
 # Juste pour tester si le code marche, je vais ajouter un GUI dans le futur
-
-print("Skill #1: ",profile.s1.name)
-print("Level: ",profile.s1.lvl)
-print("XP: ",profile.s1.xp)
-print("Rank: ",profile.s1.rank)
+print("Skill #1: ",player[0].name)
+print("Level: ",player[0].lvl)
+print("XP: ",player[0].xp)
+print("Rank: ",player[0].rank)
