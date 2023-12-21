@@ -1,8 +1,15 @@
-import profile
-player = profile.get_skills()
+import wx
+import gui
 
-# Juste pour tester si le code marche, je vais ajouter un GUI dans le futur
-print("Skill #1: ",player[0].name)
-print("Level: ",player[0].lvl)
-print("XP: ",player[0].xp)
-print("Rank: ",player[0].rank)
+class CalcFrame(gui.MyFrame1):
+    def __init__(self,parent):
+        gui.MyFrame1.__init__(self,parent)
+
+    def search_player(self,event):
+        print("comming soon")
+
+app = wx.App(False)
+frame = CalcFrame(None)
+frame.Show(True)
+
+app.MainLoop()
