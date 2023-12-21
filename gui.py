@@ -415,3 +415,17 @@ class MyFrame1 ( wx.Frame ):
 	# Virtual event handlers, override them in your derived class
 	def search_player( self, event ):
 		event.Skip()
+
+# old main
+class CalcFrame(MyFrame1):
+    def __init__(self,parent):
+        MyFrame1.__init__(self,parent)
+
+    def search_player(self,event):
+        print("comming soon")
+
+app = wx.App(False)
+frame = CalcFrame(None)
+frame.Show(True)
+
+app.MainLoop()
