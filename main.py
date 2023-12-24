@@ -429,9 +429,10 @@ class CalcFrame(MyFrame1):
         MyFrame1.__init__(self,parent)
 
     def search_player(self,event):
-        user_input = event.GetValue()
+        user_input = self.m_textCtrl2.GetValue()
         get_skills(user_input)
         MyFrame1.Refresh(self)
+        print("sent something? " + user_input)
 		
 
 
