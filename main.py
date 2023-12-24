@@ -9,6 +9,8 @@ skills_name = ["Attack","Defence","Strength","Constitution","Ranged","Prayer","M
                "Herblore","Agility","Thieving","Slayer","Farming","Runecrafting","Hunter","Construction",
                "Summoning","Dungeoneering","Divination","Invention","Archaeology","Necromancy"]
 
+name = input("Enter name: ")
+
 # La classe des skills
 class Skills:
     def __init__(self, lvl, xp, rank, name):
@@ -17,13 +19,14 @@ class Skills:
         self.rank = rank
         self.name = name
 
-name = input("Enter name: ")
+#sans ça, ça fait une erreur je ne sais pas pourquoi
+
 
 # La function pour pogner les skills
-def get_skills():	
+def get_skills(input_name):	
 
 	# Requests va prendre le fichier .json selon le joueur choisi
-	profile_url = "https://apps.runescape.com/runemetrics/profile/profile?user="+name+"&activities=20"
+	profile_url = "https://apps.runescape.com/runemetrics/profile/profile?user="+input_name+"&activities=20"
 	response = requests.get(profile_url)
 
 
@@ -176,7 +179,7 @@ def get_skills():
 	return s1,s2,s3,s4,s5,s6,s7,s8,s9,s10,s11,s12,s13,s14,s15,s16,s17,s18,s19,s20,s21,s22,s23,s24,s25,s26,s27,s28,s29
 
 # Lancer la function et mettre ca dans skills
-skills = get_skills()
+skills = get_skills(name)
 
 # Le GUI ( merci maxou )
 class MyFrame1 ( wx.Frame ):
@@ -416,13 +419,21 @@ class MyFrame1 ( wx.Frame ):
 	def search_player( self, event ):
 		event.Skip()
 
+
+
+	
+
 # old main
 class CalcFrame(MyFrame1):
     def __init__(self,parent):
         MyFrame1.__init__(self,parent)
 
     def search_player(self,event):
-        print("comming soon")
+        user_input = event.GetValue()
+        get_skills(user_input)
+        MyFrame1.Refresh(self)
+		
+
 
 app = wx.App(False)
 frame = CalcFrame(None)
