@@ -2,4 +2,5 @@ DateTime==5.3
 requests==2.31.0
 wxPython==4.2.1
 wxwidgets==1.0.5
+halo==0.0.31
 
