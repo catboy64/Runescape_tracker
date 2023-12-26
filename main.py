@@ -20,14 +20,11 @@ class Skills:
         self.rank = rank
         self.name = name
 
-#sans ça, ça fait une erreur je ne sais pas pourquoi
-
-
 # La function pour pogner les skills
 @Halo(text='Getting data from Runescape\'s api', spinner='pong')
 def get_skills(input_name):	
 
-    # Requests va prendre le fichier .json selon le joueur choisi
+    # "Request" va "get" le fichier du joueur 
     profile_url = "https://apps.runescape.com/runemetrics/profile/profile?user="+input_name+"&activities=20"
     response = requests.get(profile_url)
 
@@ -422,14 +419,11 @@ class MyFrame1 ( wx.Frame ):
         event.Skip()
 
 
-
-    
-
-# old main
 class CalcFrame(MyFrame1):
     def __init__(self,parent):
         MyFrame1.__init__(self,parent)
 
+    # merci Louis
     def search_player(self,event):
         user_input = self.m_textCtrl2.GetValue()
         skills = get_skills(user_input)
@@ -495,14 +489,6 @@ class CalcFrame(MyFrame1):
                     self.m_button50.SetLabel(str(item.lvl))
                 case "Necromancy":
                     self.m_button51.SetLabel(str(item.lvl))
-                
-
-
-                
-
-        
-        
-
 
 app = wx.App(False)
 frame = CalcFrame(None)
